@@ -1,0 +1,81 @@
+<mvc:View controllerName="exer07.exer07-ui.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <Shell id="shell">
+    <App id="app">
+      <pages>
+        <Page id="page" title="{i18n>title}">
+          <content>
+            <SplitApp id="split" initialDetail="detail">
+              <masterPages>
+                <Page id="master">
+                  <content>
+                    <List items="{oDataModel>/Orders}" growing="true" growingScrollToLoad="true" id="table" itemPress="onRowPress">
+                      <StandardListItem title="{oDataModel>OrderID}" description="{oDataModel>ShipName}" type="Navigation"/>
+                    </List>
+                    <!--<Table items="{oDataModel>/Orders}" growing="true" growingScrollToLoad="true" id="table">-->
+                    <!--  <items>-->
+                    <!--    <ColumnListItem type="Active" press="onRowPress">-->
+                    <!--      <cells>-->
+                    <!--        <Text text="{oDataModel>OrderID}"/>-->
+                    <!--        <Text text="{oDataModel>ShipName}"/>-->
+                    <!--      </cells>-->
+                    <!--    </ColumnListItem>-->
+                    <!--  </items>-->
+                    <!--  <columns>-->
+                    <!--    <Column>-->
+                    <!--      <header><Label text="{i18n>orderId}"/></header>-->
+                    <!--    </Column>-->
+                    <!--    <Column>-->
+                    <!--      <header><Label text="{i18n>shipName}"/></header>-->
+                    <!--    </Column>-->
+                    <!--  </columns>-->
+                    <!--</Table>-->
+                  </content>
+                </Page>
+              </masterPages>
+              <detailPages>
+                <Page id="detail">
+                  <content>
+                    <sap.ui.layout.form:SimpleForm editable="false" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+                      xmlns:sap.ui.core="sap.ui.core" id="detail-form">
+                      <sap.ui.layout.form:content>
+                        <sap.ui.core:Title text="{i18n>details}"/>
+                        <Label text="{i18n>orderId}"/>
+                        <Input editable="false" value="{oDataModel>OrderID}"/>
+                        <Label text="{i18n>customerId}"/>
+                        <Input editable="false" value="{oDataModel>CustomerID}"/>
+                        <Label text="{i18n>employeeId}"/>
+                        <Input editable="false" value="{oDataModel>EmployeeID}"/>
+                        <Label text="{i18n>orderDate}"/>
+                        <Input editable="false" value="{oDataModel>OrderDate}"/>
+                        <Label text="{i18n>requiredDate}"/>
+                        <Input editable="false" value="{oDataModel>RequiredDate}"/>
+                        <Label text="{i18n>shippedDate}"/>
+                        <Input editable="false" value="{oDataModel>ShippedDate}"/>
+                        <Label text="{i18n>shipVia}"/>
+                        <Input editable="false" value="{oDataModel>ShipVia}"/>
+                        <Label text="{i18n>freight}"/>
+                        <Input editable="false" value="{oDataModel>Freight}"/>
+                        <Label text="{i18n>shipName}"/>
+                        <Input editable="false" value="{oDataModel>ShipName}"/>
+                        <Label text="{i18n>shipAddress}"/>
+                        <Input editable="false" value="{oDataModel>ShipAddress}"/>
+                        <Label text="{i18n>shipCity}"/>
+                        <Input editable="false" value="{oDataModel>ShipCity}"/>
+                        <Label text="{i18n>shipRegion}"/>
+                        <Input editable="false" value="{oDataModel>ShipRegion}"/>
+                        <Label text="{i18n>shipPostalCode}"/>
+                        <Input editable="false" value="{oDataModel>ShipPostalCode}"/>
+                        <Label text="{i18n>shipCountry}"/>
+                        <Input editable="false" value="{oDataModel>ShipCountry}"/>
+                      </sap.ui.layout.form:content>
+                    </sap.ui.layout.form:SimpleForm>
+                  </content>
+                </Page>
+              </detailPages>
+            </SplitApp>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>
