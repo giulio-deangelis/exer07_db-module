@@ -1,44 +1,36 @@
 ID: exer07_db-module
 _schema-version: '2.1'
-version: 0.0.1
-
+version: 1.0.0
 modules:
- - name: exer07-db
-   type: hdb
-   path: exer07-db
-   requires:
-    - name: hdi_exer07-db
-
-
- - name: exer07-ui
-   type: html5
-   path: exer07-ui
-   parameters:
+  - name: exer07-db
+    type: hdb
+    path: exer07-db
+    requires:
+      - name: hdi_exer07-db
+  - name: exer07-ui
+    type: html5
+    path: exer07-ui
+    parameters:
       disk-quota: 512M
       memory: 256M
-   build-parameters:
+    build-parameters:
       builder: grunt
-   requires:
-    - name: uaa_exer07_db-module
-    - name: dest_exer07_db-module
-
+    requires:
+      - name: uaa_exer07_db-module
+      - name: dest_exer07_db-module
 resources:
- - name: hdi_exer07-db
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
-
- - name: uaa_exer07_db-module
-   parameters:
+  - name: hdi_exer07-db
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: uaa_exer07_db-module
+    parameters:
       path: ./xs-security.json
       service-plan: application
       service: xsuaa
-   type: org.cloudfoundry.managed-service
-
-
- - name: dest_exer07_db-module
-   parameters:
+    type: org.cloudfoundry.managed-service
+  - name: dest_exer07_db-module
+    parameters:
       service-plan: lite
       service: destination
-   type: org.cloudfoundry.managed-service
-
+    type: org.cloudfoundry.managed-service
