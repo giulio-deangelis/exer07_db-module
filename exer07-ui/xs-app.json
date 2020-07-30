@@ -1,21 +1,28 @@
 {
-  "welcomeFile": "/exer07-ui/index.html",
-  "authenticationMethod": "route",
-  "logout": {
-    "logoutEndpoint": "/do/logout"
-  },
-  "routes": [
-    {
-      "source": "^/northwind/(.*)$",
-      "target": "$1",
-      "authenticationType": "none",
-      "destination": "northwind",
-      "csrfProtection": false
-    },
-    {
-      "source": "^/exer07-ui/(.*)$",
-      "target": "$1",
-      "localDir": "webapp"
-    }
-  ]
+	"welcomeFile": "/exer07-ui/index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutEndpoint": "/do/logout"
+	},
+	"routes": [{
+		"source": "^/northwind/(.*)$",
+		"target": "$1",
+		"authenticationType": "none",
+		"destination": "northwind",
+		"csrfProtection": false
+	}, {
+		"source": "^/exer07-ui/(.*)$",
+		"target": "$1",
+		"localDir": "webapp"
+	}, {
+		"source": "(.*)(.xsjs)",
+		"destination": "exer07-xsjs-backend",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "(.*)(.xsodata)",
+		"destination": "exer07-xsjs-backend",
+		"authenticationType": "xsuaa"
+
+	}]
 }

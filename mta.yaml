@@ -18,6 +18,23 @@ modules:
     requires:
       - name: uaa_exer07_db-module
       - name: dest_exer07_db-module
+      - name: exer07-xsjs_api
+        group: destinations
+        properties:
+          name: exer07-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
+  - name: exer07-xsjs
+    type: nodejs
+    path: exer07-xsjs
+    provides:
+      - name: exer07-xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_exer07-db
+      - name: uaa_exer07_db-module
+      - name: exer07-db
 resources:
   - name: hdi_exer07-db
     properties:
